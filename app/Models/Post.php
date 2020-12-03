@@ -33,4 +33,8 @@ class Post extends Model
         'position',
         'deadline'
     ];
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }

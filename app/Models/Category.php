@@ -12,4 +12,9 @@ class Category extends Model
     protected $fillable = [
         'name','descriptions','parent_id','is_active','user_created_id','user_created_table','slug','deleted_at','id'
     ];
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
