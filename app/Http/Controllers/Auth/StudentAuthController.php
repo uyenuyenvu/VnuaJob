@@ -14,7 +14,7 @@ class StudentAuthController extends Controller
 {
     use AuthenticatesUsers;
 
-    protected $redirectTo = '/';
+    protected $redirectTo = '/students';
 
     protected function guard()
     {

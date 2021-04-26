@@ -22,4 +22,9 @@ class DashboardController extends Controller
     {
         return view('backend.dashboard-employer');
     }
+
+    public function indexStudent(Request $request)
+    {
+        return view('backend.student.profile');
+    }
 }

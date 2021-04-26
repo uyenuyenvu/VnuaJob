@@ -140,6 +140,10 @@ Route::group(['prefix' => 'employers'], function () {
 
     Route::middleware('auth.employer')->group(function (){
         Route::get('/',[Backend\DashboardController::class,'indexEmployer'])->name('employers.dashboard');
+        Route::get('/students', [Backend\StudentController::class, 'indexEmployer'])->name('employers.student.index');
+        Route::get('/students/get-data', [Backend\StudentController::class, 'getDataEmployer'])->name('employers.student.index');
+        Route::get('/students/cv/{id}', [Backend\StudentController::class, 'downloadFileCV'])->name('employers.student.cv');
+
 
         Route::group([
             'prefix' => 'post',
@@ -161,6 +165,13 @@ Route::group(['prefix' => 'employers'], function () {
     });
 });
 
+Route::group(['prefix'=>'students'],function (){
+    Route::middleware('auth.student')->group(function (){
+        Route::get('/',[Backend\DashboardController::class,'indexStudent'])->name('students.dashboard');
+        Route::post('/upload-cv',[Backend\StudentController::class,'uploadFileCV'])->name('students.upload');
+        Route::post('/profile/edit',[Backend\StudentController::class,'updateProfile'])->name('students.edit.profile');
+    });
+});
 
 Route::get('/',[Frontend\HomeController::class, 'index'])->name('home');
 
