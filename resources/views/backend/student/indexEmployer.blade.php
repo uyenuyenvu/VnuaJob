@@ -1,6 +1,53 @@
-@extends('backend.layouts.master')
+@extends('backend.layouts.master-employ')
 @section('scripts')
-    <script src="{{asset('backend/custom/student.js')}}"></script>
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var studentTable = $('#studentTable').DataTable({
+            processing: true,
+            serverSide: true,
+            searching: true,
+            destroy: true,
+            responsive: true,
+            ajax: {
+                url: '/employers/students/get-data',
+            },
+
+            language: {
+                sProcessing: "Đang xử lý...",
+                sLengthMenu: "Xem _MENU_ mục",
+                sZeroRecords: "Không tìm thấy dòng nào phù hợp",
+                sInfo: "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
+                sInfoEmpty: "Đang xem 0 đến 0 trong tổng số 0 mục",
+                sInfoFiltered: "(được lọc từ _MAX_ mục)",
+                sSearch: 'Tìm kiếm',
+                lengthMenu: '_MENU_ bản ghi/trang',
+                oPaginate: {
+                    "sFirst": "Đầu",
+                    "sPrevious": "Trước",
+                    "sNext": "Tiếp",
+                    "sLast": "Cuối"
+                }
+            },
+            columns: [
+                {data: 'DT_RowIndex', searchable: false, orderable: false,},
+                {data: 'name', name: 'student.name' , orderable: false,},
+                {data: 'student_code', name: 'student_code.title' , orderable: false,},
+                {data: 'email', name: 'student.email',orderable: false,},
+                {data: 'phone', name: 'student.phone', orderable: false,},
+                {data: 'home_town', name: 'student.phone', orderable: false,},
+                {data: 'class', name: 'student.class', orderable: false,},
+                {data: 'facuty_id', name: 'student.facuty_id', orderable: false,},
+                {data: 'status', name: 'student.status', orderable: false,},
+                {data: 'action', name: 'action', orderable: false, searchable: false},
+            ]
+        });
+
+    </script>
 @endsection
 @section('css')
     <style>
@@ -81,15 +128,7 @@
                     <!-- .card -->
                     <div class="card card-fluid">
                         <div class="card-header">
-                            <div>
-                                <button class="btn btn-success" id="btnAddStudent">
-                                    <i class="fa fa-plus"> </i> Thêm mới</a>
-                                </button>
 
-                                <button class="btn btn-primary" id="btnAddStudentExcel">
-                                    <i class="fas fa-file-upload"></i> Nhập Excel
-                                </button>
-                            </div>
                         </div>
                         <!-- .card-body -->
                         <div class="card-body">
@@ -110,7 +149,7 @@
                                             <th>Lớp</th>
                                             <th>Khoa</th>
                                             <th>Trạng thái việc làm</th>
-                                            <th>Trạng thái</th>
+
                                             <th>Hành động</th>
                                         </tr>
                                         </thead>

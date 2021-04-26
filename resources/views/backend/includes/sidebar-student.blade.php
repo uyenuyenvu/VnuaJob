@@ -51,8 +51,8 @@
                                 aria-expanded="false"><span class="user-avatar user-avatar-md"><img
                                     src="{{ asset('backend') }}/assets/images/avatars/profile.jpg" alt=""></span> <span
                                 class="account-summary pr-lg-4 d-none d-lg-block"><span
-                                    class="account-name">{{Auth::guard('employer')->user()->name}}</span> <span
-                                    class="account-description">Nhà tuyển dụng</span></span></button>
+                                    class="account-name">{{Auth::guard('student')->user()->name}}</span> <span
+                                    class="account-description">Sinh viên</span></span></button>
                         <!-- .dropdown-menu -->
                         <div class="dropdown-menu">
                             <div class="dropdown-arrow d-lg-none" x-arrow=""></div>
@@ -97,29 +97,13 @@
                 <!-- .menu -->
                 <ul class="menu">
                     <!-- .menu-item -->
-
-                    @if(Auth::guard('employer')->check())
-                        <li class="menu-header">Tuyển dụng</li>
+                        <li class="menu-header">Sinh viên</li>
                         <!-- .menu-item -->
                         <li class="menu-item">
-                            <a href="{{route('employer.post.create')}}" class="menu-link"><span
+                            <a href="{{route('students.dashboard')}}" class="menu-link"><span
                                     class="menu-icon far fa-file"></span> <span
-                                    class="menu-text">Đăng bài tuyển dụng</span></a> <!-- child menu -->
+                                    class="menu-text">Hồ sơ sinh viên</span></a> <!-- child menu -->
                         </li><!-- /.menu-item -->
-                        <!-- .menu-item -->
-                        <li class="menu-item">
-                            <a href="{{route('employer.post.index')}}" class="menu-link"><span
-                                    class="menu-icon oi oi-wrench"></span> <span
-                                    class="menu-text">Các bài đã đăng</span></a> <!-- child menu -->
-                        </li><!-- /.menu-item -->
-
-                        <li class="menu-item ">
-                            <a href="{{route('employers.student.index')}}" class="menu-link"><span
-                                    class="menu-icon fas fa-user-graduate"></span> <span class="menu-text">Quản lý sinh viên</span></a>
-                            <!-- child menu -->
-                        </li><!-- /.menu-item -->
-                        <!-- .menu-item -->
-                @endif
                 <!-- .menu-item -->
                 </ul><!-- /.menu -->
             </nav><!-- /.stacked-menu -->
