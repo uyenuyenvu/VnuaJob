@@ -11,25 +11,45 @@
 @endsection
 @section('contents')
 
-    <div class="main-content">
-        <div class="section">
-            <div class="section-body">
-                <h2 class="section-title">Danh sách các danh mục</h2>
 
-                <div class="row">
+    <div class="wrapper">
+        <!-- .page -->
+        <div class="page">
+            <!-- .page-inner -->
+            <div class="page-inner">
+                <!-- .page-title-bar -->
+                <header class="page-title-bar">
+                    <!-- .breadcrumb -->
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active">
+                                <a href="#"><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Tables</a>
+                            </li>
+                        </ol>
+                    </nav><!-- /.breadcrumb -->
+                    <!-- title -->
+                    <h1 class="page-title"> Quản lý danh mục </h1>
 
-                    <div class="col-12">
-                        <div class="card">
-
-                            <div class="card-body">
-
+                </header><!-- /.page-title-bar -->
+                <!-- .page-section -->
+                <div class="page-section">
+                    <!-- .card -->
+                    <div class="card card-fluid">
+                        <div class="card-header">
+                            <div>
+                                <button class="btn btn-success" id="addCategory">Thêm mới</button>
+                            </div>
+                        </div>
+                        <!-- .card-body -->
+                        <div class="card-body">
+                            <!-- .table -->
+                            <div id="dt-responsive_wrapper" class="dataTables_wrapper dt-bootstrap4">
                                 <div class="table-responsive">
-
-                                    <a class="btn btn-success" id="addCategory" style="margin-bottom: 2%">
-                                        <i class="fa fa-plus"> </i> Thêm mới</a>
-                                    <table class="table table-striped" id="listCategory">
+                                    <table id="listCategory"
+                                           class="table dt-responsive nowrap w-100 dataTable dtr-inline" role="grid"
+                                           aria-describedby="dt-responsive_info">
                                         <thead>
-                                        <tr>
+                                        <tr role="row">
                                             <th>STT</th>
                                             <th>Tên danh mục</th>
                                             <th>Danh mục chứa</th>
@@ -37,17 +57,22 @@
                                             <th>Hành động</th>
                                         </tr>
                                         </thead>
+                                        <tfoot>
+                                        </tfoot>
+                                        <tbody>
+                                        <tr class="odd">
+                                            <td valign="top" colspan="6" class="dataTables_empty">Loading...</td>
+                                        </tr>
+                                        </tbody>
                                     </table>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+                            </div><!-- /.table -->
+                        </div><!-- /.card-body -->
+                    </div><!-- /.card -->
+                </div><!-- /.page-section -->
+            </div><!-- /.page-inner -->
+        </div><!-- /.page -->
     </div>
-
 
     <div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
