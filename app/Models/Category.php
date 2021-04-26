@@ -10,7 +10,7 @@ class Category extends Model
 {
     use HasFactory,softDeletes;
     protected $fillable = [
-        'name','descriptions','parent_id','is_active','user_created_id','user_created_table','slug','deleted_at','id'
+        'name','descriptions','parent_id','is_active','categorizable_id','categorizable_type','slug','deleted_at','id'
     ];
 
     public function posts()

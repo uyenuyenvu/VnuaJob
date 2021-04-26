@@ -1,4 +1,4 @@
-@extends('backend.layouts.master')
+@extends('backend.layouts.master-employ')
 @section('scripts')
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
