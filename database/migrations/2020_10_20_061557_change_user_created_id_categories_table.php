@@ -15,7 +15,7 @@ class ChangeUserCreatedIdCategoriesTable extends Migration
     {
         Schema::table('categories', function (Blueprint $table) {
             if(Schema::hasColumn('categories','user_created_id')){
-                Schema::rename('user_created_id', 'categorizable_id');
+                $table->renameColumn('user_created_id', 'categorizable_id');
             }
 
             if (Schema::hasColumn('categories', 'user_created_table')) {
@@ -37,7 +37,7 @@ class ChangeUserCreatedIdCategoriesTable extends Migration
     {
         Schema::table('categories', function (Blueprint $table) {
             if(Schema::hasColumn('categories','postable_id')){
-                Schema::rename('postable_id', 'user_id');
+                $table->renameColumn('postable_id', 'user_id');
             }
 
             if(Schema::hasColumn('categories','postable_type')){

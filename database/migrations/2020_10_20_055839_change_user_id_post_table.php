@@ -15,7 +15,7 @@ class ChangeUserIdPostTable extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             if(Schema::hasColumn('posts','user_created_id')){
-                Schema::rename('user_created_id', 'postable_id');
+                $table->renameColumn('user_created_id', 'postable_id');
             }
 
             if(Schema::hasColumn('posts','user_table')){
@@ -37,7 +37,7 @@ class ChangeUserIdPostTable extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             if(Schema::hasColumn('posts','postable_id')){
-                Schema::rename('postable_id', 'user_created_id');
+                $table->renameColumn('postable_id', 'user_created_id');
             }
 
             if(Schema::hasColumn('posts','postable_type')){
