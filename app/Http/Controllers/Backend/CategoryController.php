@@ -30,9 +30,9 @@ class CategoryController extends Controller
         $categories = Category::all();
         $user_login = Auth::user();
         return DataTables::of($categories)
-            ->editColumn('parent',function ($category){
-                if (!empty($category->parent_id)){
-                    $parent= Category::where('id', $category->parent_id)->first();
+            ->editColumn('parent', function ($category) {
+                if (!empty($category->parent_id)) {
+                    $parent = Category::where('id', $category->parent_id)->first();
                     return $parent->name;
                 }
                 return '';
@@ -42,7 +42,7 @@ class CategoryController extends Controller
                         <a data-id="' . $category->id . '" class="btn btn-danger btn-icon btn-delete" title="Xóa"><i class="fas fa-trash"></i></a>';
             })
             ->addIndexColumn()
-            ->rawColumns(['is_active', 'action','parent'])
+            ->rawColumns(['is_active', 'action', 'parent'])
             ->make(true);
     }
 
@@ -54,40 +54,54 @@ class CategoryController extends Controller
     public function create()
     {
         $categories = Category::all();
-        $options='';
-        foreach ($categories as $category){
-            $options.='<option value="'.$category->id.'">'.$category->name.'</option>';
+        $options = '';
+        foreach ($categories as $category) {
+            $options .= '<option value="' . $category->id . '">' . $category->name . '</option>';
         }
         return response()->json([
-            'options'=>$options
+            'options' => $options
         ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
+
         DB::beginTransaction();
-        $data=$request->all();
-        $data['slug']=\Illuminate\Support\Str::slug($request->get('name')).time();
-        $data['user_created_id']= Auth::id();
-        $data['is_active']=1;
-        $category=Category::create($data);
-        DB::commit();
-        return response()->json([
-            'error'=>false,
-            'message'=>'Thêm mới thành công danh mục '.$category->name
-        ]);
+
+        try {
+            $data = $request->all();
+            $data['slug'] = \Illuminate\Support\Str::slug($request->get('name')) . time();
+            $data['categorizable_id'] = Auth::id();
+            $data['categorizable_type'] = 'users';
+            $data['is_active'] = 1;
+
+            Category::create($data);
+
+            DB::commit();
+            return response()->json([
+                'error' => false,
+                'message' => 'Thêm mới thành công '
+            ]);
+        } catch (\Exception $exception) {
+            return response()->json([
+                'error' => false,
+                'message' => $exception->getMessage()
+            ]);
+        }
+
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
     public function show(Category $category)
@@ -98,68 +112,68 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $this_category=Category::where('id',$id)->first();
+        $this_category = Category::where('id', $id)->first();
         $categories = Category::all();
-        $options='';
-        foreach ($categories as $category){
-            if($category->id == $this_category->parent_id){
-                $options.='<option value="'.$category->id.'" selected>'.$category->name.'</option>';
+        $options = '';
+        foreach ($categories as $category) {
+            if ($category->id == $this_category->parent_id) {
+                $options .= '<option value="' . $category->id . '" selected>' . $category->name . '</option>';
 
-            }else{
-                $options.='<option value="'.$category->id.'">'.$category->name.'</option>';
+            } else {
+                $options .= '<option value="' . $category->id . '">' . $category->name . '</option>';
 
             }
         }
         return response()->json([
-            'category'=>$this_category,
-            'options'=>$options
+            'category' => $this_category,
+            'options' => $options
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         DB::beginTransaction();
-        $category= Category::where('id',$id)->first();
-        $data=$request->all();
-        $data['slug']=\Illuminate\Support\Str::slug($request->get('name')).time();
+        $category = Category::where('id', $id)->first();
+        $data = $request->all();
+        $data['slug'] = \Illuminate\Support\Str::slug($request->get('name')) . time();
         $category->update($data);
         DB::commit();
         return response()->json([
-            'error'=>false,
-            'message'=>'Thêm mới thành công danh mục '.$category->name
+            'error' => false,
+            'message' => 'Thêm mới thành công danh mục ' . $category->name
         ]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Category  $category
+     * @param \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $category=Category::where('id',$id)->first();
+        $category = Category::where('id', $id)->first();
         $name = $category->name;
         $sons = Category::where('parent_id', $id)->get();
-        foreach ($sons as $son){
+        foreach ($sons as $son) {
             $son->parent_id = null;
             $son->save();
         }
         $category->delete();
         return response()->json([
-            'error'=>false,
+            'error' => false,
         ]);
     }
 }

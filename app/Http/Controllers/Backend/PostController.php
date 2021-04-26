@@ -23,6 +23,7 @@ class PostController extends Controller
     {
         $list_category = Category::all();
         $companies = Company::all();
+
         return view('backend.post.index')->with([
             'list_category'=>$list_category,
             'companies'=>$companies
