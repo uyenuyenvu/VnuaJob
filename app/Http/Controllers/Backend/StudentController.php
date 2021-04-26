@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Imports\UsersImport;
 use App\Models\Facuty;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\DataTables;
 
 class StudentController extends Controller
@@ -45,8 +47,8 @@ class StudentController extends Controller
                 else return 'Đang cập nhật';
             })
             ->editColumn('facuty_id',function($student){
-                $faculty = Facuty::findOrFail($student->facuty_id);
-                return $faculty->name;
+                $faculty = Facuty::find($student->facuty_id);
+                return $faculty ? $faculty->name : 'Đang cập nhật';
             })
             ->editColumn('phone',function($student){
                 if($student->phone) return $student->phone;
@@ -77,7 +79,7 @@ class StudentController extends Controller
             })
             ->addIndexColumn()
             ->rawColumns(['is_active', 'action', 'status'])
-            ->make(true);
+            ->make();
     }
 
     /**
@@ -249,5 +251,34 @@ class StudentController extends Controller
                 'message'   => $message
             ]);
         }
+    }
+
+    public function import(Request $request)
+    {
+        $input = $request->allFiles();
+
+        try {
+            Excel::import(new UsersImport(), $input['excel']);
+            $message = 'Nhập dữ liệu thành công';
+            return response()->json([
+                'error' => false,
+                'message' => $message
+            ]);
+        } catch (\Exception $e) {
+            $mesage = 'Nhập dữ liệu thất bại!';
+            return response()->json([
+                'error' => true,
+                'message' => $mesage
+            ]);
+        }
+    }
+
+    public function downloadExcel(){
+        $file = public_path() . "/file-template/studens.xlsx";
+        $nameFile = "students.xlsx";
+        return response()->download($file, $nameFile, [
+            'Content-Type' => 'application/vnd.ms-excel',
+            'Content-Disposition' => 'inline; filename="students.xlsx"'
+        ]);
     }
 }
