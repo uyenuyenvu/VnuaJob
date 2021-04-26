@@ -138,14 +138,18 @@ class PostController extends Controller
 //            ]);
 
             if (Auth::guard('user')->user()!=null){
-                $input['user_id'] = Auth::guard('user')->user()->id;
-                $input['user_table'] = 0;
+                $input['postable_id'] = Auth::guard('user')->user()->id;
+                $input['postable_type'] = 'users';
             }
 
             if (Auth::guard('employer')->user()!=null){
-                $input['user_id'] = Auth::guard('employer')->user()->id;
-                $input['user_table'] = 1;
+                $input['postable_id'] = Auth::guard('employer')->user()->id;
+                $input['postable_type'] = 'employers';
             }
+            preg_match_all('!\d+!', $input['salart_start'], $matches);
+            $input['salart_start']=(int)$matches;
+            preg_match_all('!\d+!', $input['salart_end'], $matches);
+            $input['salart_end']= (int)$matches;
 
             $post = Post::create($input);
 

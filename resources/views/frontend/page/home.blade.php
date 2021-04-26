@@ -30,125 +30,115 @@
 <div class="catagory_area">
     <div class="container">
         <div class="row cat_search">
-            <div class="col-lg-3 col-md-4">
+            <div class="col-lg-4 col-md-4">
                 <div class="single_input">
                     <input type="text" placeholder="Từ khóa">
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4">
-                <div class="single_input">
-                    <select class="wide" >
-                        <option data-display="Địa điểm">Địa điêm</option>
-                        <option value="1">Hà Nội</option>
-                        <option value="2">Thành phố Hồ Chí Minh</option>
-                        <option value="3">Đà Nẵng</option>
-                      </select>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4">
+            <div class="col-lg-4 col-md-4">
                 <div class="single_input">
                     <select class="wide">
                         <option data-display="Danh mục">Danh mục</option>
-                        <option value="1">Category 1</option>
-                        <option value="2">Category 2</option>
-                        <option value="4">Category 3</option>
+                        @foreach($categories as $category)
+                        <option value="{{$category->id}}">{{$category->name}}</option>
+                        @endforeach
                       </select>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-12">
+            <div class="col-lg-4 col-md-12">
                 <div class="job_btn">
                     <a href="#" class="boxed-btn3">Tìm kiếm công việc</a>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="popular_search d-flex align-items-center">
-                    <span>Từ khóa phổ biến:</span>
-                    <ul>
-                        <li><a href="#">Design & Creative</a></li>
-                        <li><a href="#">Marketing</a></li>
-                        <li><a href="#">Administration</a></li>
-                        <li><a href="#">Teaching & Education</a></li>
-                        <li><a href="#">Engineering</a></li>
-                        <li><a href="#">Software & Web</a></li>
-                        <li><a href="#">Telemarketing</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+{{--        <div class="row">--}}
+{{--            <div class="col-lg-12">--}}
+{{--                <div class="popular_search d-flex align-items-center">--}}
+{{--                    <span>Từ khóa phổ biến:</span>--}}
+{{--                    <ul>--}}
+{{--                        <li><a href="#">Design & Creative</a></li>--}}
+{{--                        <li><a href="#">Marketing</a></li>--}}
+{{--                        <li><a href="#">Administration</a></li>--}}
+{{--                        <li><a href="#">Teaching & Education</a></li>--}}
+{{--                        <li><a href="#">Engineering</a></li>--}}
+{{--                        <li><a href="#">Software & Web</a></li>--}}
+{{--                        <li><a href="#">Telemarketing</a></li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
     </div>
 </div>
 <!--/ catagory_area -->
 
 <!-- popular_catagory_area_start  -->
-<div class="popular_catagory_area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section_title mb-40">
-                    <h3>Danh mục phổ biến</h3>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-xl-3 col-md-6">
-                <div class="single_catagory">
-                    <a href="jobs.html"><h4>Design & Creative</h4></a>
-                    <p> <span>50</span> Vị trí có sẵn</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-xl-3 col-md-6">
-                <div class="single_catagory">
-                    <a href="jobs.html"><h4>Marketing</h4></a>
-                    <p> <span>50</span> Vị trí có sẵn</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-xl-3 col-md-6">
-                <div class="single_catagory">
-                    <a href="jobs.html"><h4>Telemarketing</h4></a>
-                    <p> <span>50</span> Vị trí có sẵn</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-xl-3 col-md-6">
-                <div class="single_catagory">
-                    <a href="jobs.html"><h4>Software & Web</h4></a>
-                    <p> <span>50</span> Vị trí có sẵn</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-xl-3 col-md-6">
-                <div class="single_catagory">
-                    <a href="jobs.html"><h4>Administration</h4></a>
-                    <p> <span>50</span> Vị trí có sẵn</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-xl-3 col-md-6">
-                <div class="single_catagory">
-                    <a href="jobs.html"><h4>Teaching & Education</h4></a>
-                    <p> <span>50</span> Vị trí có sẵn</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-xl-3 col-md-6">
-                <div class="single_catagory">
-                    <a href="jobs.html"><h4>Engineering</h4></a>
-                    <p> <span>50</span> Vị trí có sẵn</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-xl-3 col-md-6">
-                <div class="single_catagory">
-                    <a href="jobs.html"><h4>Garments / Textile</h4></a>
-                    <p> <span>50</span> Vị trí có sẵn</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+{{--<div class="popular_catagory_area">--}}
+{{--    <div class="container">--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-lg-12">--}}
+{{--                <div class="section_title mb-40">--}}
+{{--                    <h3>Danh mục phổ biến</h3>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-lg-4 col-xl-3 col-md-6">--}}
+{{--                <div class="single_catagory">--}}
+{{--                    <a href="jobs.html"><h4>Design & Creative</h4></a>--}}
+{{--                    <p> <span>50</span> Vị trí có sẵn</p>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 col-xl-3 col-md-6">--}}
+{{--                <div class="single_catagory">--}}
+{{--                    <a href="jobs.html"><h4>Marketing</h4></a>--}}
+{{--                    <p> <span>50</span> Vị trí có sẵn</p>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 col-xl-3 col-md-6">--}}
+{{--                <div class="single_catagory">--}}
+{{--                    <a href="jobs.html"><h4>Telemarketing</h4></a>--}}
+{{--                    <p> <span>50</span> Vị trí có sẵn</p>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 col-xl-3 col-md-6">--}}
+{{--                <div class="single_catagory">--}}
+{{--                    <a href="jobs.html"><h4>Software & Web</h4></a>--}}
+{{--                    <p> <span>50</span> Vị trí có sẵn</p>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 col-xl-3 col-md-6">--}}
+{{--                <div class="single_catagory">--}}
+{{--                    <a href="jobs.html"><h4>Administration</h4></a>--}}
+{{--                    <p> <span>50</span> Vị trí có sẵn</p>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 col-xl-3 col-md-6">--}}
+{{--                <div class="single_catagory">--}}
+{{--                    <a href="jobs.html"><h4>Teaching & Education</h4></a>--}}
+{{--                    <p> <span>50</span> Vị trí có sẵn</p>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 col-xl-3 col-md-6">--}}
+{{--                <div class="single_catagory">--}}
+{{--                    <a href="jobs.html"><h4>Engineering</h4></a>--}}
+{{--                    <p> <span>50</span> Vị trí có sẵn</p>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 col-xl-3 col-md-6">--}}
+{{--                <div class="single_catagory">--}}
+{{--                    <a href="jobs.html"><h4>Garments / Textile</h4></a>--}}
+{{--                    <p> <span>50</span> Vị trí có sẵn</p>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 <!-- popular_catagory_area_end  -->
 
 <!-- job_listing_area_start  -->
-<div class="job_listing_area">
+<div class="job_listing_area" id="list_job">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center" style="padding-top: 20px">
             <div class="col-lg-6">
                 <div class="section_title">
                     <h3>Danh sách công việc</h3>
@@ -162,180 +152,46 @@
         </div>
         <div class="job_lists">
             <div class="row">
+                @foreach($posts as $post)
                 <div class="col-lg-12 col-md-12">
                     <div class="single_jobs white-bg d-flex justify-content-between">
                         <div class="jobs_left d-flex align-items-center">
-                            <div class="thumb">
-                                <img src="{{asset('frontend')}}/img/svg_icon/1.svg" alt="">
+                            <div class="thumb" style="width: 140px;
+    height: 80px;">
+                                <img src="/storage/{{$post['image']}}" alt="" style="width: 100%">
                             </div>
                             <div class="jobs_conetent">
-                                <a href="job_details.html"><h4>Software Engineer</h4></a>
+                                <a href="job_details.html"><h4>{{$post['info']->title}}</h4></a>
                                 <div class="links_locat d-flex align-items-center">
                                     <div class="location">
-                                        <p> <i class="fa fa-map-marker"></i> California, USA</p>
+                                        <p> <i class="fa fa-map-marker"></i>{{$post['info']->location}} </p>
                                     </div>
                                     <div class="location">
-                                        <p> <i class="fa fa-clock-o"></i> Part-time</p>
+                                        <p> <i class="fa fa-clock-o"></i>
+                                        @if($post['info']->job_nature === 1)
+                                                Part-time
+                                            @elseif($post['info']->job_nature === 2)
+                                            Full-time
+                                            @else
+                                            Linh động thời gian
+                                            @endif
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="jobs_right">
                             <div class="apply_now">
-                                <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
+{{--                                <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>--}}
                                 <a href="job_details.html" class="boxed-btn3">Ứng tuyển</a>
                             </div>
                             <div class="date">
-                                <p>Date line: 31 Jan 2020</p>
+                                <p>Hạn nhận hồ sơ: {{date_format(new DateTime($post['info']->deadline),'d-m-Y')}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-12 col-md-12">
-                    <div class="single_jobs white-bg d-flex justify-content-between">
-                        <div class="jobs_left d-flex align-items-center">
-                            <div class="thumb">
-                                <img src="{{asset('frontend')}}/img/svg_icon/2.svg" alt="">
-                            </div>
-                            <div class="jobs_conetent">
-                                <a href="job_details.html"><h4>Digital Marketer</h4></a>
-                                <div class="links_locat d-flex align-items-center">
-                                    <div class="location">
-                                        <p> <i class="fa fa-map-marker"></i>Hà Nội, VN</p>
-                                    </div>
-                                    <div class="location">
-                                        <p> <i class="fa fa-clock-o"></i> Part-time</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="jobs_right">
-                            <div class="apply_now">
-                                <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
-                                <a href="job_details.html" class="boxed-btn3">Ứng tuyển</a>
-                            </div>
-                            <div class="date">
-                                <p>Date line: 31 Jan 2020</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 col-md-12">
-                    <div class="single_jobs white-bg d-flex justify-content-between">
-                        <div class="jobs_left d-flex align-items-center">
-                            <div class="thumb">
-                                <img src="{{asset('frontend')}}/img/svg_icon/3.svg" alt="">
-                            </div>
-                            <div class="jobs_conetent">
-                                <a href="job_details.html"><h4>Wordpress Developer</h4></a>
-                                <div class="links_locat d-flex align-items-center">
-                                    <div class="location">
-                                        <p> <i class="fa fa-map-marker"></i>Hà Nội, VN</p>
-                                    </div>
-                                    <div class="location">
-                                        <p> <i class="fa fa-clock-o"></i> Part-time</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="jobs_right">
-                            <div class="apply_now">
-                                <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
-                                <a href="job_details.html" class="boxed-btn3">Ứng tuyển</a>
-                            </div>
-                            <div class="date">
-                                <p>Date line: 31 Jan 2020</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 col-md-12">
-                    <div class="single_jobs white-bg d-flex justify-content-between">
-                        <div class="jobs_left d-flex align-items-center">
-                            <div class="thumb">
-                                <img src="{{asset('frontend')}}/img/svg_icon/4.svg" alt="">
-                            </div>
-                            <div class="jobs_conetent">
-                                <a href="job_details.html"><h4>Visual Designer</h4></a>
-                                <div class="links_locat d-flex align-items-center">
-                                    <div class="location">
-                                        <p> <i class="fa fa-map-marker"></i>Hà Nội, VN</p>
-                                    </div>
-                                    <div class="location">
-                                        <p> <i class="fa fa-clock-o"></i> Part-time</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="jobs_right">
-                            <div class="apply_now">
-                                <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
-                                <a href="job_details.html" class="boxed-btn3">Ứng tuyển</a>
-                            </div>
-                            <div class="date">
-                                <p>Date line: 31 Jan 2020</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 col-md-12">
-                    <div class="single_jobs white-bg d-flex justify-content-between">
-                        <div class="jobs_left d-flex align-items-center">
-                            <div class="thumb">
-                                <img src="{{asset('frontend')}}/img/svg_icon/5.svg" alt="">
-                            </div>
-                            <div class="jobs_conetent">
-                                <a href="job_details.html"><h4>Software Engineer</h4></a>
-                                <div class="links_locat d-flex align-items-center">
-                                    <div class="location">
-                                        <p> <i class="fa fa-map-marker"></i>Hà Nội, VN</p>
-                                    </div>
-                                    <div class="location">
-                                        <p> <i class="fa fa-clock-o"></i> Part-time</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="jobs_right">
-                            <div class="apply_now">
-                                <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
-                                <a href="job_details.html" class="boxed-btn3">Ứng tuyển</a>
-                            </div>
-                            <div class="date">
-                                <p>Date line: 31 Jan 2020</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 col-md-12">
-                    <div class="single_jobs white-bg d-flex justify-content-between">
-                        <div class="jobs_left d-flex align-items-center">
-                            <div class="thumb">
-                                <img src="{{asset('frontend')}}/img/svg_icon/1.svg" alt="">
-                            </div>
-                            <div class="jobs_conetent">
-                                <a href="job_details.html"><h4>Creative Designer</h4></a>
-                                <div class="links_locat d-flex align-items-center">
-                                    <div class="location">
-                                        <p> <i class="fa fa-map-marker"></i>Hà Nội, VN</p>
-                                    </div>
-                                    <div class="location">
-                                        <p> <i class="fa fa-clock-o"></i> Part-time</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="jobs_right">
-                            <div class="apply_now">
-                                <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
-                                <a href="job_details.html" class="boxed-btn3">Ứng tuyển</a>
-                            </div>
-                            <div class="date">
-                                <p>Date line: 31 Jan 2020</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -344,7 +200,7 @@
 
 
 
-<div class="top_companies_area">
+<div class="top_companies_area" id="company">
     <div class="container">
         <div class="row align-items-center mb-40">
             <div class="col-lg-6 col-md-6">
@@ -359,42 +215,20 @@
             </div>
         </div>
         <div class="row">
+            @foreach($companies as $company)
             <div class="col-lg-4 col-xl-3 col-md-6">
                 <div class="single_company">
-                    <div class="thumb">
-                        <img src="{{asset('frontend')}}/img/svg_icon/5.svg" alt="">
+                    <div class="thumb" style="    width: 100%;
+    height: 100px;
+">
+                        <img src="/storage/{{$company->logo}}" alt="" style="width: 100%">
                     </div>
-                    <a href="jobs.html"><h3>Snack Studio</h3></a>
+                    <a href="{{$company->website}}" target="_blank"><h3>{{$company->name}}</h3></a>
                     <p> <span>50</span> Vị trí có sẵn</p>
                 </div>
             </div>
-            <div class="col-lg-4 col-xl-3 col-md-6">
-                <div class="single_company">
-                    <div class="thumb">
-                        <img src="{{asset('frontend')}}/img/svg_icon/4.svg" alt="">
-                    </div>
-                    <a href="jobs.html"><h3>Snack Studio</h3></a>
-                    <p> <span>50</span> Vị trí có sẵn</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-xl-3 col-md-6">
-                <div class="single_company">
-                    <div class="thumb">
-                        <img src="{{asset('frontend')}}/img/svg_icon/3.svg" alt="">
-                    </div>
-                    <a href="jobs.html"><h3>Snack Studio</h3></a>
-                    <p> <span>50</span> Vị trí có sẵn</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-xl-3 col-md-6">
-                <div class="single_company">
-                    <div class="thumb">
-                        <img src="{{asset('frontend')}}/img/svg_icon/1.svg" alt="">
-                    </div>
-                    <a href="jobs.html"><h3>Snack Studio</h3></a>
-                    <p> <span>50</span> Vị trí có sẵn</p>
-                </div>
-            </div>
+            @endforeach
+
         </div>
     </div>
 </div>
@@ -405,14 +239,14 @@
         <div class="row">
             <div class="col-lg-5 offset-lg-1 col-md-6">
                 <div class="searching_text">
-                    <h3>Bạn là sinh viện ?</h3>
-                    <a href="#" class="boxed-btn3">Xem thêm dang sách công việc</a>
+                    <h3>Bạn là sinh viên ?</h3>
+                    <a href="#footer" class="boxed-btn3">Liên hệ để đăng ký</a>
                 </div>
             </div>
             <div class="col-lg-5 offset-lg-1 col-md-6">
                 <div class="searching_text">
                     <h3>Bạn là người tuyển dụng?</h3>
-                    <a href="#" class="boxed-btn3">Tuyển dụng</a>
+                    <a href="{{route('employers.register')}}" class="boxed-btn3">Đăng ký tuyển dụng</a>
                 </div>
             </div>
         </div>
@@ -421,74 +255,74 @@
 <!-- job_searcing_wrap end  -->
 
 <!-- testimonial_area  -->
-<div class="testimonial_area  ">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section_title text-center mb-40">
-                    <h3>Testimonial</h3>
-                </div>
-            </div>
-            <div class="col-xl-12">
-                <div class="testmonial_active owl-carousel">
-                    <div class="single_carousel">
-                        <div class="row">
-                            <div class="col-lg-11">
-                                <div class="single_testmonial d-flex align-items-center">
-                                    <div class="thumb">
-                                        <img src="{{asset('frontend')}}/img/testmonial/author.png" alt="">
-                                        <div class="quote_icon">
-                                            <i class="Flaticon flaticon-quote"></i>
-                                        </div>
-                                    </div>
-                                    <div class="info">
-                                        <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering through animal welfare when people might depend on livestock as their only source of income or food.</p>
-                                        <span>- Micky Mouse</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single_carousel">
-                        <div class="row">
-                            <div class="col-lg-11">
-                                <div class="single_testmonial d-flex align-items-center">
-                                    <div class="thumb">
-                                        <img src="{{asset('frontend')}}/img/testmonial/author.png" alt="">
-                                        <div class="quote_icon">
-                                            <i class=" Flaticon flaticon-quote"></i>
-                                        </div>
-                                    </div>
-                                    <div class="info">
-                                        <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering through animal welfare when people might depend on livestock as their only source of income or food.</p>
-                                        <span>- Micky Mouse</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single_carousel">
-                        <div class="row">
-                            <div class="col-lg-11">
-                                <div class="single_testmonial d-flex align-items-center">
-                                    <div class="thumb">
-                                        <img src="{{asset('frontend')}}/img/testmonial/author.png" alt="">
-                                        <div class="quote_icon">
-                                            <i class="Flaticon flaticon-quote"></i>
-                                        </div>
-                                    </div>
-                                    <div class="info">
-                                        <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering through animal welfare when people might depend on livestock as their only source of income or food.</p>
-                                        <span>- Micky Mouse</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+{{--<div class="testimonial_area  ">--}}
+{{--    <div class="container">--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-lg-12">--}}
+{{--                <div class="section_title text-center mb-40">--}}
+{{--                    <h3>Testimonial</h3>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-xl-12">--}}
+{{--                <div class="testmonial_active owl-carousel">--}}
+{{--                    <div class="single_carousel">--}}
+{{--                        <div class="row">--}}
+{{--                            <div class="col-lg-11">--}}
+{{--                                <div class="single_testmonial d-flex align-items-center">--}}
+{{--                                    <div class="thumb">--}}
+{{--                                        <img src="{{asset('frontend')}}/img/testmonial/author.png" alt="">--}}
+{{--                                        <div class="quote_icon">--}}
+{{--                                            <i class="Flaticon flaticon-quote"></i>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="info">--}}
+{{--                                        <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering through animal welfare when people might depend on livestock as their only source of income or food.</p>--}}
+{{--                                        <span>- Micky Mouse</span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="single_carousel">--}}
+{{--                        <div class="row">--}}
+{{--                            <div class="col-lg-11">--}}
+{{--                                <div class="single_testmonial d-flex align-items-center">--}}
+{{--                                    <div class="thumb">--}}
+{{--                                        <img src="{{asset('frontend')}}/img/testmonial/author.png" alt="">--}}
+{{--                                        <div class="quote_icon">--}}
+{{--                                            <i class=" Flaticon flaticon-quote"></i>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="info">--}}
+{{--                                        <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering through animal welfare when people might depend on livestock as their only source of income or food.</p>--}}
+{{--                                        <span>- Micky Mouse</span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="single_carousel">--}}
+{{--                        <div class="row">--}}
+{{--                            <div class="col-lg-11">--}}
+{{--                                <div class="single_testmonial d-flex align-items-center">--}}
+{{--                                    <div class="thumb">--}}
+{{--                                        <img src="{{asset('frontend')}}/img/testmonial/author.png" alt="">--}}
+{{--                                        <div class="quote_icon">--}}
+{{--                                            <i class="Flaticon flaticon-quote"></i>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="info">--}}
+{{--                                        <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering through animal welfare when people might depend on livestock as their only source of income or food.</p>--}}
+{{--                                        <span>- Micky Mouse</span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 <!-- /testimonial_area  -->
 @endsection

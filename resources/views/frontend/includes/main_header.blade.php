@@ -16,10 +16,10 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li><a href="/">Trang chủ</a></li>
-                                        <li><a href="/">Giới thiệu</a></li>
-                                        <li><a href="#">Danh sách việc làm</a></li>
-                                        <li><a href="#">Công ty hàng đầu</a></li>
-                                        <li><a href="#">Liên hệ</a></li>
+                                        <li><a href="http://vieclamnongnghiep.vn/" target="_blank">Giới thiệu</a></li>
+                                        <li><a href="#list_job">Danh sách việc làm</a></li>
+                                        <li><a href="#company">Công ty hàng đầu</a></li>
+                                        <li><a href="#footer">Liên hệ</a></li>
                                     </ul>
                                 </nav>
                             </div>
