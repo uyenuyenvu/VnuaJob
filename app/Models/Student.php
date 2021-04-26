@@ -9,13 +9,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Student extends Authenticatable
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory;
 
     protected $guard = 'student';
 
     protected $fillable = [
-        'name', 'email', 'password','phone','is_active','student_code','home_town','class','facuty_id','status','is_active'
+        'name', 'email', 'password','phone','is_active','student_code','home_town','class','facuty_id','status'
     ];
+
 
     /**
      * The attributes that should be hidden for arrays.

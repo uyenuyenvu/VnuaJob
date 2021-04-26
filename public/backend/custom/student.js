@@ -200,3 +200,39 @@ $('#studentTable').on('click','.btn-delete',function(e){
         }
     })
 });
+
+$('#btnAddStudentExcel').click(function (){
+    $('#excelForm')[0].reset();
+    $('#excelStudentModal').modal('show');
+})
+$(document).ready(function(){
+    $('#excelForm input').change(function () {
+        $('#excelForm p').text(this.files.length + " tệp đã được chọn");
+    });
+});
+
+$('#btnImportStudent').click(function (e){
+    e.preventDefault();
+
+    var formData = new FormData($('#excelForm')[0]);
+
+    $.ajax({
+        type: 'post',
+        url: '/admin/students/import',
+        processData: false,
+        contentType: false,
+        crossDomain: true,
+        data: formData,
+        success: function (res) {
+            if (!res.error) {
+                $('#excelStudentModal').modal('hide');
+                studentTable.ajax.reload();
+                toastr.success(res.message);
+            } else {
+                toastr.error(res.message);
+            }
+        }
+
+    });
+})
+

@@ -7,6 +7,52 @@
         .error{
             color: red;
         }
+        #excelForm{
+            position: relative;
+            width: 100%;
+            height: 200px;
+            border: 4px dashed #777777;
+            margin-bottom: 50px;
+        }
+        #excelForm p{
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            line-height: 170px;
+            color: #777777;
+            font-family: Arial;
+        }
+        #excelForm input{
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            outline: none;
+            opacity: 0;
+        }
+        #excelForm button{
+            margin: 0;
+            color: #fff;
+            background: #16a085;
+            border: none;
+            width: 100px;
+            height: 35px;
+            margin-top: -20px;
+            margin-left: -4px;
+            border-radius: 4px;
+            border-bottom: 4px solid #117A60;
+            transition: all .2s ease;
+            outline: none;
+        }
+        #excelForm button:hover{
+            background: #149174;
+            color: #0C5645;
+        }
+        #excelForm button:active{
+            border:0;
+        }
+
     </style>
 @endsection
 
@@ -36,7 +82,13 @@
                     <div class="card card-fluid">
                         <div class="card-header">
                             <div>
-                                <button class="btn btn-success" id="btnAddStudent">Thêm mới</button>
+                                <button class="btn btn-success" id="btnAddStudent">
+                                    <i class="fa fa-plus"> </i> Thêm mới</a>
+                                </button>
+
+                                <button class="btn btn-primary" id="btnAddStudentExcel">
+                                    <i class="fas fa-file-upload"></i> Nhập Excel
+                                </button>
                             </div>
                         </div>
                         <!-- .card-body -->
@@ -208,6 +260,31 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
                     <button type="button" class="btn btn-primary" id="btnEditFormStudent">Lưu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="excelStudentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Cập nhật</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        Vui lòng tải lên tệp theo mẫu: <span><a href="{{route('admin.student.download')}}"><i class="fas fa-file-download"></i> tệp mẫu</a></span>
+                    </div>
+                    <form id="excelForm">
+                        <input type="file" id="excel" name="excel" multiple>
+                        <p>Thả hoặc kích vào để chọn tệp tải lên.</p>
+                        <div style="width: 100%; text-align: center">
+                            <button type="button" id="btnImportStudent"><i class="fas fa-upload"></i> Tải lên</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

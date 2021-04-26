@@ -41,8 +41,8 @@ class EmployerController extends Controller
             })
 
             ->editColumn('company_id',function($employer){
-                $company = Company::findOrFail($employer->company_id);
-                return $company->name;
+                $company = Company::find($employer->company_id);
+                return $company ? $company->name : 'Đang cập nhật';
             })
             ->editColumn('is_active', function ($employer)  {
                 $string ='';

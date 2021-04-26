@@ -24,7 +24,7 @@ class CreateTableStudentsTable extends Migration
             $table->string('home_town')->nullable()->comment('quê quán');
             $table->string('class')->nullable()->comment('lớp');
             $table->bigInteger('facuty_id')->nullable()->comment('id bảng người dùng');
-            $table->bigInteger('status')->default(0)->comment('Trạng thái việc làm sinh viên: 0:chưa tìm được - 1:đã tìm được việc');
+            $table->tinyInteger('status')->default(0)->comment('Trạng thái việc làm sinh viên: 0:chưa tìm được - 1:đã tìm được việc');
             $table->tinyInteger('is_active')->default(0)->comment('0:ngừng kích hoạt - 1:kích hoạt');
             $table->timestamps();
             $table->softDeletes();

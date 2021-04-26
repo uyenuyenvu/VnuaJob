@@ -113,7 +113,7 @@
                           </li><!-- /.menu-item -->
                           <!-- .menu-item -->
                       @endif
-                      @auth('user')
+                      @if(Auth::guard('user')->check())
                           <li class="menu-header">Quản lý tuyển dụng</li>
                           <li class="menu-item">
                               <a href="{{route('post.index')}}" class="menu-link"><span class="menu-icon far fa-file"></span> <span class="menu-text">Quản lý bài viết</span> <span class="badge badge-warning">New</span></a> <!-- child menu -->
@@ -122,9 +122,9 @@
                           <li class="menu-item">
                               <a href="{{route('category.index')}}" class="menu-link"><span class="menu-icon oi oi-wrench"></span> <span class="menu-text">Quản lý danh mục việc làm</span></a> <!-- child menu -->
                           </li><!-- /.menu-item -->
-                      @endauth
+                      @endif
 
-                    @auth('user')
+                      @if(Auth::guard('user')->check())
                     <li class="menu-header">Đơn vị</li>
 
                     <li class="menu-item ">
@@ -149,7 +149,7 @@
                     <li class="menu-item ">
                       <a href="{{route('admin.user.index')}}" class="menu-link"><span class="menu-icon oi oi-person"></span> <span class="menu-text">Quản lý người dùng</span></a> <!-- child menu -->
                     </li>
-                    @endauth
+                    @endif
 
 
 

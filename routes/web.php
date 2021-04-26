@@ -56,6 +56,8 @@ Route::group(['prefix' => 'admin'], function () {
             Route::delete('/delete/{id}', [Backend\StudentController::class,'destroy'])->name('admin.student.destroy');
             Route::put('/change-status/{id}',[Backend\StudentController::class,'changeStatus'])->name('admin.student.change-status');
             Route::get('/{id}/edit',[Backend\StudentController::class,'edit'])->name('admin.student.edit');
+            Route::post('/import',[Backend\StudentController::class,'import'])->name('admin.student.import');
+            Route::get('/download-excel-template',[Backend\StudentController::class,'downloadExcel'])->name('admin.student.download');
         });
 
         Route::group([
