@@ -1,5 +1,5 @@
 <!-- footer start -->
-<footer class="footer">
+<footer class="footer" id="footer">
     <div class="footer_top">
         <div class="container">
             <div class="row">
@@ -11,9 +11,9 @@
                             </a>
                         </div>
                         <p>
-                            finloan@support.com <br>
-                            +10 873 672 6782 <br>
-                            600/D, Green road, NewYork
+                            uyenvt.vnua@gmail.com<br>
+                            096 113 0648<br>
+                            Trâu Quỳ, Gia Lâm, Hà Nội
                         </p>
                         <div class="socail_links">
                             <ul>
@@ -48,10 +48,9 @@
                             Company
                         </h3>
                         <ul>
-                            <li><a href="#">About </a></li>
-                            <li><a href="#"> Pricing</a></li>
-                            <li><a href="#">Carrier Tips</a></li>
-                            <li><a href="#">FAQ</a></li>
+                            @foreach($companies as $company)
+                            <li><a href="{{$company->website}}">{{$company->name}} </a></li>
+                            @endforeach
                         </ul>
 
                     </div>
@@ -62,10 +61,9 @@
                             Category
                         </h3>
                         <ul>
-                            <li><a href="#">Design & Art</a></li>
-                            <li><a href="#">Engineering</a></li>
-                            <li><a href="#">Sales & Marketing</a></li>
-                            <li><a href="#">Finance</a></li>
+                            @foreach($categories as $category)
+                                <li><a href="">{{$category->name}} </a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -92,7 +90,7 @@
                 <div class="col-xl-12">
                     <p class="copy_right text-center">
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> by <a href="https://colorlib.com" target="_blank">Uyenvt</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>

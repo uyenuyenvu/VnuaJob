@@ -1,11 +1,17 @@
 @extends('backend.layouts.master')
 @section('title')
-    Quản lí khoa
+    Quản lí đối tác
 @endsection
 @section('css')
     <style>
-        .table-responsive a{
+        .table-responsive .a{
             color: white !important;
+        }
+        .name_company{
+            color: #0a6aa1;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
         }
     </style>
 @endsection
@@ -14,7 +20,7 @@
     <div class="main-content">
         <div class="section">
             <div class="section-body">
-                <h2 class="section-title">Danh sách các khoa</h2>
+                <h2 class="section-title">Danh sách các công ty</h2>
 
                 <div class="row">
 

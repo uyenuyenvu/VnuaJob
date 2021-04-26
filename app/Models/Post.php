@@ -31,10 +31,15 @@ class Post extends Model
         'request_experience',
         'request_sex',
         'position',
-        'deadline'
+        'deadline',
+        'postable_type',
+        'postable_id'
     ];
 
     public function category(){
         return $this->belongsTo(Category::class);
+    }
+    public function company(){
+        return $this->hasOne(Company::class);
     }
 }

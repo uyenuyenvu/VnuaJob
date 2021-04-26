@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Company;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +26,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        die();
+        $categories = Category::all();
+        $posts = Post::all();
+        $companies = Company::all();
+        return view('home')->with([
+            'categories'=>$categories,
+            'posts'=>$posts,
+            'companies'=>$companies
+        ]);
     }
 }
