@@ -41,7 +41,7 @@
                         </ol>
                     </nav><!-- /.breadcrumb -->
                     <!-- title -->
-                    <h1 class="page-title"> Quản lý người dùng </h1>
+                    <h1 class="page-title"> Quản lý bài đăng </h1>
 
                 </header><!-- /.page-title-bar -->
                 <!-- .page-section -->

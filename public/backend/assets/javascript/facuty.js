@@ -68,10 +68,11 @@ jQuery( document ).ready(function( $ ) {
                 descriptions: $('#description').val()
             },
             success: function(res){
-                if(res.error){
+                if(!res.error){
                     $('#modal-create').modal('hide');
                     $('#listFacuty').DataTable().ajax.reload();
                     toastr.success(res.message);
+                    dataTable();
                 }
             }
         })
@@ -109,6 +110,7 @@ jQuery( document ).ready(function( $ ) {
                     $('#modal-edit').modal('hide');
                     $('#listFacuty').DataTable().ajax.reload();
                     toastr.success(res.message);
+                    dataTable();
                 }
             }
         })
@@ -134,6 +136,7 @@ jQuery( document ).ready(function( $ ) {
                     success: function (response) {
                         $('#listFacuty').DataTable().ajax.reload();
                         toastr.success('Bạn đã xóa thành công khoa ' + response.name);
+                        dataTable();
                     }
                 });
             }

@@ -36,12 +36,15 @@ class CompanyController extends Controller
             ->editColumn('logo',function ($company){
                 return '<img src="/storage/'.$company->logo.'" style="width: 150px;" >';
             })
+            ->editColumn('name',function ($company){
+                return '<a class="name_company" target="_blank" href="'.$company->website.'">'.$company->name.'</a>';
+            })
             ->addColumn('action', function ($company) {
-                return '<a data-id="' . $company->id . '" class="btn btn-primary btn-icon btn-edit" title="Sửa thông tin"><i class="fas fa-edit"></i></a>
-                          <a data-id="' . $company->id . '" class="btn btn-danger btn-icon btn-delete" title="Xóa"><i class="fas fa-trash"></i></a>';
+                return '<a data-id="' . $company->id . '" class="btn btn-primary btn-icon btn-edit a" title="Sửa thông tin"><i class="fas fa-edit"></i></a>
+                          <a data-id="' . $company->id . '" class="btn btn-danger btn-icon btn-delete a" title="Xóa"><i class="fas fa-trash"></i></a>';
             })
             ->addIndexColumn()
-            ->rawColumns(['is_active', 'action','logo'])
+            ->rawColumns(['is_active', 'action','logo','name'])
             ->make(true);
     }
     /**
