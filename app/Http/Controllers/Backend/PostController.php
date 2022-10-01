@@ -116,6 +116,7 @@ class PostController extends Controller
     {
         $list_category = Category::all();
         $companies = Company::all();
+//        $my_company = Company::find()
         return view('backend.post.create')->with([
             'list_category'=>$list_category,
             'companies'=>$companies

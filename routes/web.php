@@ -141,7 +141,7 @@ Route::group(['prefix' => 'employers'], function () {
     Route::middleware('auth.employer')->group(function (){
         Route::get('/',[Backend\DashboardController::class,'indexEmployer'])->name('employers.dashboard');
         Route::get('/students', [Backend\StudentController::class, 'indexEmployer'])->name('employers.student.index');
-        Route::get('/students/get-data', [Backend\StudentController::class, 'getDataEmployer'])->name('employers.student.index');
+        Route::get('/students/get-data', [Backend\StudentController::class, 'getDataEmployer'])->name('employers.student.data');
         Route::get('/students/cv/{id}', [Backend\StudentController::class, 'downloadFileCV'])->name('employers.student.cv');
 
 
